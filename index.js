@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
       if (req.url === '/enquetes/yaki-shabu') {
         res.write(pug.renderFile('./form.pug', {
           path: req.url,
-          firstItem: '焼き肉',
+          firstItem: '肉肉',
           secondItem: 'しゃぶしゃぶ'
         }));
       } else if (req.url === '/enquetes/rice-bread') {
@@ -46,10 +46,6 @@ const server = http.createServer((req, res) => {
     default:
       break;
   }
-}).on('error', (e) => {
-  console.error('[' + new Date() + '] Server Error', e);
-}).on('clientError', (e) => {
-  console.error('[' + new Date() + '] Client Error', e);
 });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
